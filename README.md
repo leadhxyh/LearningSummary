@@ -2,8 +2,6 @@
 不仅要知道还要能写出来
 * * *
 * Android
-	+ asdf 
-    + asdf
 - Java
 	+ Concurrency
 	+ JVM
