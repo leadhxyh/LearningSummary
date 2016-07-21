@@ -22,7 +22,6 @@ public class StatelessFactorizer extends GenericServlet implements Servlet {
 }
 ```
 因为该类没有成员变量，所有方法操作的都是栈上的数据所以该类是线程安全的。
-
 2. 使用线程安全的类保存线程安全性
 ```
 public class CountingFactorizer extends GenericServlet implements Servlet {
@@ -43,7 +42,6 @@ public class CountingFactorizer extends GenericServlet implements Servlet {
 }
 ```
 该类有一个成员变量使用原子变量将任务委托给线程安全类实现线程安全。
-
 3. 有多个成员变量，且都是线程安全的不足以保存该类就是线程安全的，还需要额外的同步机制
 ```
 @NotThreadSafe
@@ -79,7 +77,6 @@ public class UnsafeCachingFactorizer extends GenericServlet implements Servlet {
 }
 ```
 该类有两个成员变量都是线程安全的原子类，但是确实非线程安全的。因为虽然get(),set()是线程安全的，但不能保证这两个成员的状态一致性。
-
 4. 重入
 是什么：某个线程试图获取一个由它自己持有的锁，那么这个请求会成功。
 原理：为每个锁关联一个所有者线程，计数值为0表示没有线程持有，一个线程再次持有时，该值+1。
