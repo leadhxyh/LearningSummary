@@ -2,6 +2,7 @@
 不仅要知道还要能写出来
 * * *
 * Android
+	+ [Android进程保活](http://www.jianshu.com/p/63aafe3c12af#)
 - Java
 	+ Concurrency
 		+ [JavaConcurrencyInPractice_第二章_线程安全性](https://github.com/gatsbydhn/LearningSummary/blob/master/Java/Concurrency/JavaConcurrencyInPractice_%E7%AC%AC%E4%BA%8C%E7%AB%A0_%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7.md)
