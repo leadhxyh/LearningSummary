@@ -44,7 +44,7 @@ public class CountingFactorizer extends GenericServlet implements Servlet {
 ```
 该类有一个成员变量使用原子变量将任务委托给线程安全类实现线程安全。
 
-- 有多个成员变量，且都是线程安全的不足以保存该类就是线程安全的，还需要额外的同步机制
+- 有多个成员变量，且都是线程安全的不足以保证该类就是线程安全的，还需要额外的同步机制
 ```
 @NotThreadSafe
 public class UnsafeCachingFactorizer extends GenericServlet implements Servlet {
