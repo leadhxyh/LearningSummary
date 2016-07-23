@@ -1,4 +1,4 @@
-- ### 同步容器类：
+-	### 同步容器类：
 包括Vector、Hashtable和Collections.synchronizedXxx返回的封装类。同步容器类都是线程安全的，但在某些情况下需要额外的客户端加锁来保护符号操作。例子：
 ```
 public class UnsafeVectorHelpers {
@@ -187,23 +187,41 @@ public class Memoizer2 <A, V> implements Computable<A, V> {
 }
 ```
 这种方法有一个问题：当某个线程启动了一个开销很大的计算，正在执行，另一个线程并不知道，可能重复计算。
-3.使用FutureTask
+3、使用FutureTask
 ```
-public class Memoizer2 <A, V> implements Computable<A, V> {
-    private final Map<A, V> cache = new ConcurrentHashMap<A, V>();
+public class Memoizer <A, V> implements Computable<A, V> {
+    private final ConcurrentMap<A, Future<V>> cache
+            = new ConcurrentHashMap<A, Future<V>>();
     private final Computable<A, V> c;
 
-    public Memoizer2(Computable<A, V> c) {
+    public Memoizer(Computable<A, V> c) {
         this.c = c;
     }
 
-    public V compute(A arg) throws InterruptedException {
-        V result = cache.get(arg);
-        if (result == null) {
-            result = c.compute(arg);
-            cache.put(arg, result);
+    public V compute(final A arg) throws InterruptedException {
+        while (true) {
+            Future<V> f = cache.get(arg);
+            if (f == null) {
+                Callable<V> eval = new Callable<V>() {
+                    public V call() throws InterruptedException {
+                        return c.compute(arg);
+                    }
+                };
+                FutureTask<V> ft = new FutureTask<V>(eval);
+                f = cache.putIfAbsent(arg, ft);
+                if (f == null) {
+                    f = ft;
+                    ft.run();
+                }
+            }
+            try {
+                return f.get();
+            } catch (CancellationException e) {
+                cache.remove(arg, f);
+            } catch (ExecutionException e) {
+                throw LaunderThrowable.launderThrowable(e.getCause());
+            }
         }
-        return result;
     }
 }
 ```
