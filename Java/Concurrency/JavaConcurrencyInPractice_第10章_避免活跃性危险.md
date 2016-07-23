@@ -47,7 +47,7 @@ public class LeftRightDeadlock {
             }
         }
 ```
-当两个线程同时调用transerMoney时，会发生死锁。transerMoney(myAccount, yourAccount, 10), transerMoney(yourAccount, myAccount, 10)
+当两个线程同时调用同一个对象的transerMoney时，可能发生死锁。transerMoney(myAccount, yourAccount, 10), transerMoney(yourAccount, myAccount, 10)
 解决方案：通过两个对象的hash码来规定顺序
 ```
 public class InduceLockOrder {
