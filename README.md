@@ -16,6 +16,9 @@
 - 计算机基础
 	+ CSAPP温习
 		+ [第三章_程序的机器级表示](https://github.com/gatsbydhn/LearningSummary/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/CSAPP%E6%B8%A9%E4%B9%A0/%E7%AC%AC%E4%B8%89%E7%AB%A0_%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9C%BA%E5%99%A8%E7%BA%A7%E8%A1%A8%E7%A4%BA.md)
+		+ [第5章_优化程序性能](https://github.com/gatsbydhn/LearningSummary/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/CSAPP%E6%B8%A9%E4%B9%A0/%E7%AC%AC5%E7%AB%A0_%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD.md)
+		+ [第6章_存储器层次结构](https://github.com/gatsbydhn/LearningSummary/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/CSAPP%E6%B8%A9%E4%B9%A0/%E7%AC%AC6%E7%AB%A0_%E5%AD%98%E5%82%A8%E5%99%A8%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.md)
+		+ [第9章_虚拟存储器](https://github.com/gatsbydhn/LearningSummary/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/CSAPP%E6%B8%A9%E4%B9%A0/%E7%AC%AC9%E7%AB%A0_%E8%99%9A%E6%8B%9F%E5%AD%98%E5%82%A8%E5%99%A8.md)
 	+ Database
 	+ Network
 	+ OS
