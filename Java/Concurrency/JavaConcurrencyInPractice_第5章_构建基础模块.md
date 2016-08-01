@@ -99,7 +99,7 @@ public class Preloader {
 }
 ```
 
-- Semaphare：信号量，一种简化的形式互斥量。具备不可重入的加锁语意。列子
+- Semaphare：信号量，一种简化的形式互斥量。具备不可重入的加锁语义。列子
 ```
 public class BoundedHashSet <T> {
     private final Set<T> set;

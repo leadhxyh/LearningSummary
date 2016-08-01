@@ -48,7 +48,7 @@ public class LeftRightDeadlock {
         }
 ```
 当两个线程同时调用同一个对象的transerMoney时，可能发生死锁。transerMoney(myAccount, yourAccount, 10), transerMoney(yourAccount, myAccount, 10)
-解决方案：通过两个对象的hash码来规定顺序
+解决方案：1.通过两个对象的hash码来规定顺序
 ```
 public class InduceLockOrder {
     private static final Object tieLock = new Object();
@@ -110,6 +110,7 @@ public class InduceLockOrder {
     }
 }
 ```
+2.使用tryLock避免锁顺序死锁
 
 -	死锁避免
 1.支持定时的锁：Lock.tryLock，支持超时设置
