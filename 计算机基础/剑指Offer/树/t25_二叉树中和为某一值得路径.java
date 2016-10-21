@@ -18,7 +18,7 @@ public class Solution {
         return ret;
     }
     
-    //保证root非空
+    //保证root非空,深度优先搜索
 	void findPathCore(TreeNode root, int target) {
 		sum += root.val;
         path.add(root.val);

@@ -5,6 +5,10 @@
     The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
  */
 
+/*
+ * 思路：首先排序。i从头到尾扫描，对于每个固定的i，向前推进j或向后收缩k。时间复杂度O(n)
+ */
+
 public class Solution {
     public int threeSumClosest(int[] nums, int target) {
     	int min = Integer.MAX_VALUE;

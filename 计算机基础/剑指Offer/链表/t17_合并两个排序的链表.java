@@ -3,7 +3,7 @@
  */
 
 /**
- *	时间复杂度：O(n)
+ *	时间复杂度：O(n), 递归计算
  *	特殊值测试：1、链表都为空 2、其中一个为空
  */
 
@@ -16,22 +16,12 @@ public class Solution {
         }
         
         ListNode newHead = null;
-        while (list1 != null && list2 != null) {
-            if (list1.val <= list2.val) {
-                if (newHead == null) {
-                    newHead = list1;
-                }
-                ListNode last = list1;
-                list1 = list1.next;
-                last.next = list2;
-            } else {
-                if (newHead == null) {
-                    newHead = list2;
-                }
-                ListNode last = list2;
-                list2 = list2.next;
-                last.next = list1;
-            }
+		if (list1.val <= list2.val) {
+            newHead = list1;
+            newHead.next = Merge(list1.next, list2);
+        } else {
+            newHead = list2;
+            newHead.next =  Merge(list1, list2.next);
         }
         return newHead;
     }

@@ -5,6 +5,10 @@ Note: The numbers can be arbitrarily large and are non-negative.
 
 /*
  * 思路：第i位*第j位 结果放在i+j+1位，进位放在i+j位
+ *				99
+ *			  *	 9
+ *           --------
+ *             891
  */
 
 public class Solution {
